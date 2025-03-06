@@ -73,7 +73,7 @@ public class ToDoDAOImpl implements ToDoDAOIntf {
 	public int login(String email, String pass) {
 		int regId=0;
 		try {
-			rs=stmt.executeQuery("select regid from register where email='"+email+"' and pass='"+pass+"'");
+			rs=stmt.executeQuery("select regid from register where email='"+email+"' and password='"+pass+"'");
 			if(rs.next()) {
 				regId=rs.getInt(1);
 			}

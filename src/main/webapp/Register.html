@@ -1,63 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="ISO-8859-1">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New Registration Form</title>
-    <!-- Bootstrap CSS link -->
-    <link href="bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEJ4v3Rt7TgLXfjYk2lFz7tvb1x1L8Vvuv8V5l5Oxf73/iwf/xm0tsw/y0Mjf" crossorigin="anonymous">
-	<!-- Bootstrap JS and Popper.js links -->
-	<script src="popper.min.js" integrity="sha384-oBqDVmMz4fnFO9gybG5aPA5dW29zAq7xkA2Ehu/2Q0cmSm3g5t7W7vcuRwrT2Zh4b" crossorigin="anonymous"></script>
-	<script src="bootstrap.min.js" integrity="sha384-pzjw8f+ua7Kw1TIq0v8Fq5edhb6z9f+fnU7uRek3aDkfl3Fqq2yyDd5duQwBq+YF" crossorigin="anonymous"></script>
-
+    <title>Registration Form</title>
+    <!-- Bootstrap 5 CSS link -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
-<body>
-
-<div class="container">
-    <h2 class="text-center my-4">Registration Form</h2>
-
-    <form method="post" action="./RegisterServlet">
+<body class="bg-light">
+    <div class="container py-5">
         <div class="row justify-content-center">
-            <div class="col-md-6">
-                <div class="mb-3">
-                    <label for="fname" class="form-label">First Name</label>
-                    <input type="text" name="fname" class="form-control" id="fname" required>
-                </div>
-
-                <div class="mb-3">
-                    <label for="lname" class="form-label">Last Name</label>
-                    <input type="text" name="lname" class="form-control" id="lname" required>
-                </div>
-
-                <div class="mb-3">
-                    <label for="email" class="form-label">Email</label>
-                    <input type="email" name="email" class="form-control" id="email" required>
-                </div>
-
-                <div class="mb-3">
-                    <label for="pass" class="form-label">Password</label>
-                    <input type="password" name="pass" class="form-control" id="pass" required>
-                </div>
-
-                <div class="mb-3">
-                    <label for="mobile" class="form-label">Mobile</label>
-                    <input type="text" name="mobile" class="form-control" id="mobile" required>
-                </div>
-
-                <div class="mb-3">
-                    <label for="address" class="form-label">Address</label>
-                    <textarea name="address" class="form-control" id="address" rows="4" required></textarea>
-                </div>
-
-                <div class="d-flex justify-content-between">
-                    <button type="submit" name="submit" class="btn btn-primary">Register</button>
-                    <button type="reset" name="reset" class="btn btn-secondary">Clear</button>
+            <div class="col-lg-8">
+                <div class="card shadow border-0 rounded-4 overflow-hidden">
+                    <div class="card-header bg-primary text-white text-center py-4">
+                        <h2 class="mb-1 fw-semibold">Create an Account</h2>
+                        <p class="mb-0 opacity-75 fw-light small">Fill in the form below to register with us</p>
+                    </div>
+                    
+                    <div class="card-body p-4 p-md-5">
+                        <form method="post" action="./RegisterServlet">
+                            <div class="row">
+                                <div class="col-md-6 mb-4">
+                                    <div class="form-floating">
+                                        <input type="text" name="fname" class="form-control" id="fname" placeholder="First Name" required>
+                                        <label for="fname"><i class="fas fa-user fa-sm me-2"></i>First Name</label>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-6 mb-4">
+                                    <div class="form-floating">
+                                        <input type="text" name="lname" class="form-control" id="lname" placeholder="Last Name" required>
+                                        <label for="lname"><i class="fas fa-user fa-sm me-2"></i>Last Name</label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <div class="form-floating">
+                                    <input type="email" name="email" class="form-control" id="email" placeholder="Email" required>
+                                    <label for="email"><i class="fas fa-envelope fa-sm me-2"></i>Email</label>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <div class="input-group">
+                                    <div class="form-floating flex-grow-1">
+                                        <input type="password" name="pass" class="form-control" id="pass" placeholder="Password" required>
+                                        <label for="pass"><i class="fas fa-lock fa-sm me-2"></i>Password</label>
+                                    </div>
+                                    <span class="input-group-text bg-transparent border-start-0" id="togglePassword">
+                                        <i class="fas fa-eye"></i>
+                                    </span>
+                                </div>
+                                <small class="text-muted mt-1">Password must be at least 10 characters long</small>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <div class="form-floating">
+                                    <input type="text" name="mobile" class="form-control" id="mobile" placeholder="Mobile" required>
+                                    <label for="mobile"><i class="fas fa-phone fa-sm me-2"></i>Mobile</label>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <div class="form-floating">
+                                    <textarea name="address" class="form-control" id="address" placeholder="Address" style="height: 100px;" required></textarea>
+                                    <label for="address"><i class="fas fa-map-marker-alt fa-sm me-2"></i>Address</label>
+                                </div>
+                            </div>
+                            
+                            <div class="d-flex flex-column flex-sm-row justify-content-between gap-3 mt-4">
+                                <button type="submit" name="submit" class="btn btn-primary py-3 px-4">
+                                    <i class="fas fa-user-plus me-2"></i>Register Now
+                                </button>
+                                <button type="reset" name="reset" class="btn btn-light border py-3 px-4">
+                                    <i class="fas fa-sync-alt me-2"></i>Clear Form
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                    
+                    <div class="card-footer bg-light text-center py-3 border-top">
+                        Already have an account? <a href="Login.jsp" class="text-primary fw-medium text-decoration-none">Sign In</a>
+                    </div>
                 </div>
             </div>
         </div>
-    </form>
-
-    <p class="text-center mt-3">Existing User, <a href="Login.jsp">Sign In</a></p>
-</div>
+    </div>
+    
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Toggle password visibility
+        document.getElementById('togglePassword').addEventListener('click', function() {
+            const passwordInput = document.getElementById('pass');
+            const passwordIcon = this.querySelector('i');
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                passwordIcon.classList.remove('fa-eye');
+                passwordIcon.classList.add('fa-eye-slash');
+            } else {
+                passwordInput.type = 'password';
+                passwordIcon.classList.remove('fa-eye-slash');
+                passwordIcon.classList.add('fa-eye');
+            }
+        });
+    </script>
 </body>
 </html>
